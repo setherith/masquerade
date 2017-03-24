@@ -12,7 +12,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class NameGraphic {
+public class Masquerade {
 	public JPanel output;
 	public static String[] pixels;
 
@@ -33,7 +33,7 @@ public class NameGraphic {
 			pCount++;
 		}
 		
-		new NameGraphic();
+		new Masquerade();
 	}
 
 	private static Color RandomColour() {
@@ -51,7 +51,7 @@ public class NameGraphic {
 		return result;
 	}
 
-	public NameGraphic() {
+	public Masquerade() {
 		JFrame app = new JFrame("NameGraphic");
 		
 		output = new JPanel() {
