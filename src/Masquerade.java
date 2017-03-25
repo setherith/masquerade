@@ -21,7 +21,7 @@ public class Masquerade {
 	private Color foreground;
 
 	public static void main(String[] args) {
-		username = "serenity";
+		username = "setherith";
 		new Masquerade(username);
 	}
 	
@@ -43,6 +43,9 @@ public class Masquerade {
 		}
 		
 		JFrame app = new JFrame("Masquerade");
+		
+		background = RandomColour();
+		foreground = RandomColour();
 		
 		output = new JPanel() {
 			private static final long serialVersionUID = 1L;
@@ -89,13 +92,11 @@ public class Masquerade {
 	}
 	
 	private Graphics DrawMask(Graphics g) {
-		background = RandomColour();
 		g.setColor(background);
 		g.fillRect(0, 0, SIZE.width, SIZE.height);
 		
 		int y = 0;
 		
-		foreground = RandomColour();
 		g.setColor(foreground);
 		for (String line : pixels) {
 			int x = 0;
