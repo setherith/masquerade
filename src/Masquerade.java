@@ -9,6 +9,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Masquerade {
@@ -19,13 +20,21 @@ public class Masquerade {
 	private static String username;
 	private Color background;
 	private Color foreground;
+	
+	private boolean ConsolePrint;
 
 	public static void main(String[] args) {
-		username = "setherith";
-		new Masquerade(username);
+		try {
+			username = (String) JOptionPane.showInputDialog(null, "Username");
+			new Masquerade(username);
+		} catch (NullPointerException e) { 
+			System.out.println("No username provided... quitting!");
+		}
 	}
 	
 	public Masquerade(String name) {
+		//defaults:
+		ConsolePrint = false;
 		
 		pixels = new String[16];
 		int pCount = 0;
@@ -36,7 +45,8 @@ public class Masquerade {
 			String fwd = String.format("%8s", Integer.toBinaryString(b)).replace(' ', '0');
 			String bwd = Reverse(fwd);
 			String output = fwd + bwd;
-			System.out.println(output);
+			
+			if (ConsolePrint) System.out.println(output);
 			
 			pixels[pCount] = output;
 			pCount++;
